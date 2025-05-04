@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Учёт пряжи</title>
+</head>
+<body>
+    <h1>Моя коллекция пряжи</h1>
+
+    <form action="/add" method="post" enctype="multipart/form-data">
+        <input name="name" placeholder="Наименование" required>
+        <input name="weight" placeholder="Вес (г)" required>
+        <input name="length" placeholder="Метраж (м)" required>
+        <input name="color" placeholder="Цвет" required>
+        <input name="color_code" placeholder="Номер цвета">
+        <input name="quantity" placeholder="Количество мотков" required>
+        <input name="price" placeholder="Цена" required>
+        <input type="file" name="photo">
+        <button type="submit">Добавить</button>
+    </form>
+
+    <ul>
+        {% for yarn in yarns %}
+        <li>
+            <a href="{{ url_for('yarn_card', yarn_id=yarn['id']) }}">
+                {{ yarn.name }} — {{ yarn.color }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

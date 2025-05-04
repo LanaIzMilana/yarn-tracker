@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ yarn.name }}</title>
+</head>
+<body>
+    <h1>{{ yarn.name }}</h1>
+    <p><strong>Цвет:</strong> {{ yarn.color }} ({{ yarn.color_code }})</p>
+    <p><strong>Вес:</strong> {{ yarn.weight }} г</p>
+    <p><strong>Метраж:</strong> {{ yarn.length }} м</p>
+    <p><strong>Количество:</strong> {{ yarn.quantity }} мотков</p>
+    <p><strong>Цена:</strong> {{ yarn.price }} руб.</p>
+    {% if yarn.photo %}
+    <img src="{{ url_for('static', filename='photos/' ~ yarn.photo) }}" width="300">
+    {% endif %}
+    <p><a href="/">Назад</a></p>
+</body>
+</html>
